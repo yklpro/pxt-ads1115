@@ -100,38 +100,38 @@ namespace ADS1115 {
     const _PGA_0_256V = 0x0A00    // + /-0.256V range  =  Gain 16
 
     // Mode variables
-    const _MODE_MASK = 0x0100
-    const _MODE_CONTIN = 0x0000   // Continuous conversion mode
-    const _MODE_SINGLE = 0x0100   // Power - down single - shot mode (default)
+    const _MODE_MASK = 0x0100;
+    const _MODE_CONTIN = 0x0000;   // Continuous conversion mode
+    const _MODE_SINGLE = 0x0100;   // Power - down single - shot mode (default)
 
     // Samplerate variables
-    const _DR_MASK = 0x00E0       // ADS1115
-    const _DR_128SPS = 0x0000     // 8 samples per second
-    const _DR_250SPS = 0x0020     // 16 samples per second
-    const _DR_490SPS = 0x0040     // 32 samples per second
-    const _DR_920SPS = 0x0060     // 64 samples per second
-    const _DR_1600SPS = 0x0080    // 128 samples per second (default)
-    const _DR_2400SPS = 0x00A0    // 250 samples per second
-    const _DR_3300SPS = 0x00C0    // 475 samples per second
-    const _DR_860SPS = 0x00E0     // 860 samples per Second
+    const _DR_MASK = 0x00E0;       // ADS1115
+    const _DR_128SPS = 0x0000;     // 8 samples per second
+    const _DR_250SPS = 0x0020;     // 16 samples per second
+    const _DR_490SPS = 0x0040;     // 32 samples per second
+    const _DR_920SPS = 0x0060;     // 64 samples per second
+    const _DR_1600SPS = 0x0080;    // 128 samples per second (default)
+    const _DR_2400SPS = 0x00A0;    // 250 samples per second
+    const _DR_3300SPS = 0x00C0;    // 475 samples per second
+    const _DR_860SPS = 0x00E0;     // 860 samples per Second
 
-    const _CMODE_MASK = 0x0010
-    const _CMODE_TRAD = 0x0000    // Traditional comparator with hysteresis (default)
-    const _CMODE_WINDOW = 0x0010  // Window comparator
+    const _CMODE_MASK = 0x0010;
+    const _CMODE_TRAD = 0x0000;    // Traditional comparator with hysteresis (default)
+    const _CMODE_WINDOW = 0x0010;  // Window comparator
 
-    const _CPOL_MASK = 0x0008
-    const _CPOL_ACTVLOW = 0x0000  // ALERT / RDY pin is low when active (default)
-    const _CPOL_ACTVHI = 0x0008   // ALERT / RDY pin is high when active
+    const _CPOL_MASK = 0x0008;
+    const _CPOL_ACTVLOW = 0x0000;  // ALERT / RDY pin is low when active (default)
+    const _CPOL_ACTVHI = 0x0008;   // ALERT / RDY pin is high when active
 
-    const _CLAT_MASK = 0x0004     // Determines if ALERT / RDY pin latches once asserted
-    const _CLAT_NONLAT = 0x0000   // Non - latching comparator (default)
-    const _CLAT_LATCH = 0x0004    // Latching comparator
+    const _CLAT_MASK = 0x0004;     // Determines if ALERT / RDY pin latches once asserted
+    const _CLAT_NONLAT = 0x0000;   // Non - latching comparator (default)
+    const _CLAT_LATCH = 0x0004;    // Latching comparator
 
-    const _CQUE_MASK = 0x0003
-    const _CQUE_1CONV = 0x0000    // Assert ALERT / RDY after one conversions
-    const _CQUE_2CONV = 0x0001    // Assert ALERT / RDY after two conversions
-    const _CQUE_4CONV = 0x0002    // Assert ALERT / RDY after four conversions
-    const _CQUE_NONE = 0x0003     // Disable the comparator and put ALERT / RDY in high state (default)
+    const _CQUE_MASK = 0x0003;
+    const _CQUE_1CONV = 0x0000;    // Assert ALERT / RDY after one conversions
+    const _CQUE_2CONV = 0x0001;   // Assert ALERT / RDY after two conversions
+    const _CQUE_4CONV = 0x0002;    // Assert ALERT / RDY after four conversions
+    const _CQUE_NONE = 0x0003;     // Disable the comparator and put ALERT / RDY in high state (default)
 
     // List of usable gains
     let _GAINS = [
@@ -178,11 +178,11 @@ namespace ADS1115 {
     ];
 
     // All global variables used in the library, as well as some predefined variables that serve as default values
-    let adsaddress = 0x48
-    let adsgain = _GAINS[0]
-    let adsrate = _RATES[4]
-    let adsmode = _MODE_CONTIN
-    let adsgainv: number = 2
+    let adsaddress = 0x48;
+    let adsgain = _GAINS[0];
+    let adsrate = _RATES[4];
+    let adsmode = _MODE_CONTIN;
+    let adsgainv: number = 2;
 
     /**
      * Changing the I2C address based on user input
@@ -192,16 +192,16 @@ namespace ADS1115 {
     //% parts=adc_ads1115 trackArgs=0
     export function initADS1115(selection: userInI2C): void {
         if (selection == userInI2C.Gnd) {
-            adsaddress = 0x48
+            adsaddress = 0x48;
         }
         else if (selection == userInI2C.Vcc) {
-            adsaddress = 0x49
+            adsaddress = 0x49;
         }
         else if (selection == userInI2C.Sda) {
-            adsaddress = 0x4A
+            adsaddress = 0x4A;
         }
         else if (selection == userInI2C.Scl) {
-            adsaddress = 0x4B
+            adsaddress = 0x4B;
         }
     }
 
@@ -213,28 +213,28 @@ namespace ADS1115 {
     //% parts=adc_ads1115 trackArgs=0
     export function setGain(selection: gain): void {
         if (selection == gain.Twothirds) {
-            adsgain = _GAINS[0]
-            adsgainv = 0
+            adsgain = _GAINS[0];
+            adsgainv = 0;
         }
         else if (selection == gain.One) {
-            adsgain = _GAINS[1]
-            adsgainv = 1
+            adsgain = _GAINS[1];
+            adsgainv = 1;
         }
         else if (selection == gain.Two) {
-            adsgain = _GAINS[2]
-            adsgainv = 2
+            adsgain = _GAINS[2];
+            adsgainv = 2;
         }
         else if (selection == gain.Four) {
-            adsgain = _GAINS[3]
-            adsgainv = 3
+            adsgain = _GAINS[3];
+            adsgainv = 3;
         }
         else if (selection == gain.Eight) {
-            adsgain = _GAINS[4]
-            adsgainv = 4
+            adsgain = _GAINS[4];
+            adsgainv = 4;
         }
         else if (selection == gain.Sixteen) {
-            adsgain = _GAINS[5]
-            adsgainv = 5
+            adsgain = _GAINS[5];
+            adsgainv = 5;
         }
     }
 
@@ -246,28 +246,28 @@ namespace ADS1115 {
     //% parts=adc_ads1115 trackArgs=0
     export function setRate(selection: rate): void {
         if (selection == rate.Rate1) {
-            adsrate = _RATES[0]
+            adsrate = _RATES[0];
         }
         else if (selection == rate.Rate2) {
-            adsrate = _RATES[1]
+            adsrate = _RATES[1];
         }
         else if (selection == rate.Rate3) {
-            adsrate = _RATES[2]
+            adsrate = _RATES[2];
         }
         else if (selection == rate.Rate4) {
-            adsrate = _RATES[3]
+            adsrate = _RATES[3];
         }
         else if (selection == rate.Rate5) {
-            adsrate = _RATES[4]
+            adsrate = _RATES[4];
         }
         else if (selection == rate.Rate6) {
-            adsrate = _RATES[5]
+            adsrate = _RATES[5];
         }
         else if (selection == rate.Rate7) {
-            adsrate = _RATES[6]
+            adsrate = _RATES[6];
         }
         else if (selection == rate.Rate8) {
-            adsrate = _RATES[7]
+            adsrate = _RATES[7];
         }
     }
 
@@ -275,48 +275,48 @@ namespace ADS1115 {
      * Change the mode based on user input
      */
     //% blockId="ADS1115_SET_MODE" block="Set the mode to %mode"
-    //% color="#275C6B" weight=100 blockGap=8
-    //% parts=adc_ads1115 trackArgs=0
+    //% color="#275C6B" weight=100 blockGap=8;
+    //% parts=adc_ads1115 trackArgs=0;
     export function setMode(selection: mode): void {
         if (selection == mode.Single) {
-            adsmode = _MODE_SINGLE
+            adsmode = _MODE_SINGLE;
         }
         else if (selection == mode.Multi) {
-            adsmode = _MODE_CONTIN
+            adsmode = _MODE_CONTIN;
         }
     }
 
     // Write the required 16-bit value into the register
     function _write_register(register: number, value: number) {
-        let temp: number[] = []
+        let temp: number[] = [];
         // The variable 'value' is shifted 8 bits to the right and inserted into the list temp[] at position 1.
-        temp.insertAt(1, (value >> 8) & 0xff)
+        temp.insertAt(1, (value >> 8) & 0xff);
         // Insert the variable 'value' at position 2 in the temp[] list.
-        temp.insertAt(2, (value & 0xff))
+        temp.insertAt(2, (value & 0xff));
         // Create a buffer that will be used to send all the required data at once.
-        let num = pins.createBuffer(3)
+        let num = pins.createBuffer(3);
         // Set the data of the buffer at position 0 to the register value.
-        num.setNumber(NumberFormat.Int8LE, 0, register)
+        num.setNumber(NumberFormat.Int8LE, 0, register);
         // Set the data of the buffer at position 1 to the value of position 1 from the temp[] list.
-        num.setNumber(NumberFormat.Int8LE, 1, temp[1])
+        num.setNumber(NumberFormat.Int8LE, 1, temp[1]);
         // Set the data of the buffer at position 2 to the value of position 2 from the temp[] list.
-        num.setNumber(NumberFormat.Int8LE, 2, temp[2])
+        num.setNumber(NumberFormat.Int8LE, 2, temp[2]);
         // Send the buffer with the now added data via I2C to the set I2C address.
-        pins.i2cWriteBuffer(adsaddress, num, false)
+        pins.i2cWriteBuffer(adsaddress, num, false);
     }
 
     // Read the 16-bit register value that will be returned
     function _read_register(register: number) {
         // Writing the register to be read to the set I2C address.
-        pins.i2cWriteNumber(adsaddress, register, NumberFormat.Int8LE, false)
+        pins.i2cWriteNumber(adsaddress, register, NumberFormat.Int8LE, false);
         // Read all data returned after writing to the specified register.
-        let result = pins.i2cReadBuffer(adsaddress, 2, false)
+        let result = pins.i2cReadBuffer(adsaddress, 2, false);
         // Get the data and put it into 2 different variables.
-        let result1 = result.getNumber(NumberFormat.UInt8LE, 0)
-        let result2 = result.getNumber(NumberFormat.UInt8LE, 1)
+        let result1 = result.getNumber(NumberFormat.UInt8LE, 0);
+        let result2 = result.getNumber(NumberFormat.UInt8LE, 1);
         // Return the data combined with the Bitwise operator '|' = Bitwise 'OR'.
         // 'result1' must be shifted 8 bits to the left so that we end up with the required 16-bit value.
-        return result1 << 8 | result2
+        return result1 << 8 | result2;
     }
 
     /**
@@ -326,8 +326,8 @@ namespace ADS1115 {
     //% color="#275C6B" weight=100 blockGap=8
     //% parts=adc_ads1115 trackArgs=0
     export function raw_to_v(raw: number) {
-        let v_p_b = _GAINS_V[adsgainv] / 32767
-        return Math.roundWithPrecision(raw * v_p_b, 2)
+        let v_p_b = _GAINS_V[adsgainv] / 32767;
+        return Math.roundWithPrecision(raw * v_p_b, 2);
     }
 
     /**
@@ -338,24 +338,25 @@ namespace ADS1115 {
     //% parts=adc_ads1115 trackArgs=0
     export function read(chan: number) {
         // Linking of all required data by the bitwise 'OR ('|')' operator.
-        let config = 0x0000
-        config |= _CHANNELS[chan]
-        config |= adsgain
-        config |= adsrate
-        config |= adsmode
-        config |= _CQUE_NONE
+        let config = 0x0000;
+        config |= _CHANNELS[chan];
+        config |= adsgain;
+        config |= adsrate;
+        config |= adsmode;
+        config |= _CQUE_NONE;
         // Sending the required data to the specified register.
-        _write_register(_REGISTER_CONFIG, config)
-        while (!(_read_register(_REGISTER_CONFIG) & _OS_NOTBUSY))
-            break 
+        _write_register(_REGISTER_CONFIG, config);
+        while (!(_read_register(_REGISTER_CONFIG) & _OS_NOTBUSY)){
+            basic.pause(1); 
+		}
         // Reading the returned data.
-        let res = _read_register(_REGISTER_CONVERT)
+        let res = _read_register(_REGISTER_CONVERT);
         if (res < 32768) {
-            return res
+            return res;
         }
         else {
-            res = res - 65536 /* 65469 */ 
-            return res
+            res = res - 65536; /* 65469 */ 
+            return res;
         }
     }
 
@@ -371,22 +372,22 @@ namespace ADS1115 {
         let res1: number; let res2: number; let res3: number; let res4: number
         for (start; start <= end; start++) {
             if (start == 0) {
-                res1 = read(start)
-                basic.pause(25)
+                res1 = read(start);
+                basic.pause(25);
             }
             else if (start == 1) {
-                res2 = read(start)
-                basic.pause(25)
+                res2 = read(start);
+                basic.pause(25);
             }
             else if (start == 2) {
-                res3 = read(start)
-                basic.pause(25)
+                res3 = read(start);
+                basic.pause(25);
             }
             else if (start == 3) {
-                res4 = read(start)
-                basic.pause(25)
+                res4 = read(start);
+                basic.pause(25);
             }
         }
-        return [res1, res2, res3, res4]
+        return [res1, res2, res3, res4];
     }
 }
