@@ -1,4 +1,4 @@
-# MakeCode Package for the ADS1115
+# MakeCode Package for the ADS1115 v0.001
 
 ## I2C Address
 You can use the `Initialize ADS1115 with Address (...)` block to change the I2C address used for communication with the ADS.
