@@ -347,14 +347,14 @@ namespace ADS1115 {
         // Sending the required data to the specified register.
         _write_register(_REGISTER_CONFIG, config)
         while (!(_read_register(_REGISTER_CONFIG) & _OS_NOTBUSY))
-            break
+            continue /* break */
         // Reading the returned data.
         let res = _read_register(_REGISTER_CONVERT)
         if (res < 32768) {
             return res
         }
         else {
-            res = res - 65469
+            res = res - 65536 /* 65469 */ 
             return res
         }
     }
