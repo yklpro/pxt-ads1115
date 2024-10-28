@@ -347,7 +347,7 @@ namespace ADS1115 {
         // Sending the required data to the specified register.
         _write_register(_REGISTER_CONFIG, config)
         while (!(_read_register(_REGISTER_CONFIG) & _OS_NOTBUSY))
-            continue /* break */
+            break 
         // Reading the returned data.
         let res = _read_register(_REGISTER_CONVERT)
         if (res < 32768) {
