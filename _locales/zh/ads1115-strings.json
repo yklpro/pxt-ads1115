@@ -1,12 +1,12 @@
 {
-  "ADS1115.initADS1115|block": "初始化 ADS1115，I2C 位址為 %userInI2C",
-  "ADS1115.raw_to_v|block": "將原始值 %raw 轉換為電壓",
-  "ADS1115.read|block": "讀取通道 %chan",
-  "ADS1115.readMulti|block": "從通道 %start 讀取到 %end",
-  "ADS1115.setGain|block": "設定增益為 %gain",
-  "ADS1115.setMode|block": "設定模式為 %mode",
-  "ADS1115.setRate|block": "設定取樣率為 %rate",
-  "ADS1115|block": "ads1115",
+  "ads1115.initADS1115|block": "初始化 ADS1115，I2C 位址為 %userInI2C",
+  "ads1115.raw_to_v|block": "將原始值 %raw 轉換為電壓",
+  "ads1115.read|block": "讀取通道 %chan",
+  "ads1115.readMulti|block": "從通道 %start 讀取到 %end",
+  "ads1115.setGain|block": "設定增益為 %gain",
+  "ads1115.setMode|block": "設定模式為 %mode",
+  "ads1115.setRate|block": "設定取樣率為 %rate",
+  "ads1115|block": "ads1115",
   "gain.Eight|block": "8 倍增益",
   "gain.Four|block": "4 倍增益",
   "gain.One|block": "1 倍增益",
@@ -27,5 +27,5 @@
   "userInI2C.Scl|block": "SCL 位址 0x4B",
   "userInI2C.Sda|block": "SDA 位址 0x4A",
   "userInI2C.Vcc|block": "VCC 位址 0x49",
-  "{id:category}ADS1115": "ADS1115"
+  "{id:category}ads1115": "ads1115"
 }
