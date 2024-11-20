@@ -1,5 +1,5 @@
 {
-    "name": "ADS1115",
+    "name": "ads1115",
     "version": "0.0.1",
     "description": "Micro:bit extension for interacting with ADS1115 over I2C",
     "license": "MIT",
@@ -11,6 +11,5 @@
         "README.md",
         "_locales/zh/ads1115-strings.json"
     ],
-    "testFiles": [],
     "public": true
 }
