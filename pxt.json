@@ -8,8 +8,8 @@
     },
     "files": [
         "main.ts",
-        "README.md"
-		"_locales/zh/ADS1115-strings.json"
+        "README.md",
+        "_locales/zh/ADS1115-strings.json"
     ],
     "testFiles": [],
     "public": true
