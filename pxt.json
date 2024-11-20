@@ -9,7 +9,7 @@
     "files": [
         "main.ts",
         "README.md",
-        "_locales/zh/ADS1115-strings.json"
+        "_locales/zh/ads1115-strings.json"
     ],
     "testFiles": [],
     "public": true

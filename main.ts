@@ -66,7 +66,7 @@ enum mode {
   * ADS1115 16-Bit ADC block
   */
 //% color="#275C6B" weight=100 icon="\uf0e7" block="ADS1115"
-namespace ADS1115 {
+namespace ads1115 {
     // Register variables
     const _REGISTER_MASK = 0x03
     const _REGISTER_CONVERT = 0x00
@@ -347,7 +347,7 @@ namespace ADS1115 {
         // Sending the required data to the specified register.
         _write_register(_REGISTER_CONFIG, config);
         while (!(_read_register(_REGISTER_CONFIG) & _OS_NOTBUSY)){
-            break;  /* basic.pause(25); */ 
+            break;  /* if use basic.pause(25), it is halted; */
 		}
         // Reading the returned data.
         let res = _read_register(_REGISTER_CONVERT);
