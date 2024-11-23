@@ -370,9 +370,9 @@ namespace ads1115 {
     //% parts=adc_ads1115 trackArgs=0
     export function readMulti(start: number, end: number) {
         let res1=0; 
-		let res2=0; 
-		let res3=0; 
-		let res4=0;
+        let res2=0; 
+        let res3=0; 
+        let res4=0;
         for (let i = start; i <= end; i++) {
             if (i == 0) {
                 res1 = read(i);
