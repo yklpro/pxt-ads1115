@@ -364,27 +364,27 @@ namespace ads1115 {
      * Reads the specified channels of the ADS1115
      */
     //% blockId="ADS1115_READMULTI" block="Read from channel %start to %end"
-    //% start.min=0 start.max=4 start.defl=0
-    //% end.min=0 end.max=4 end.defl=4
+    //% start.min=0 start.max=3 start.defl=0
+    //% end.min=0 end.max=3 end.defl=3
     //% color="#275C6B" weight=100 blockGap=8
     //% parts=adc_ads1115 trackArgs=0
     export function readMulti(start: number, end: number) {
-        let res1: number; let res2: number; let res3: number; let res4: number
-        for (start; start <= end; start++) {
-            if (start == 0) {
-                res1 = read(start);
+        let res1=0: number; let res2=0: number; let res3=0: number; let res4=0: number
+        for (let i = start; i <= end; i++) {
+            if (i == 0) {
+                res1 = read(i);
                 basic.pause(25);
             }
-            else if (start == 1) {
-                res2 = read(start);
+            else if (i == 1) {
+                res2 = read(i);
                 basic.pause(25);
             }
-            else if (start == 2) {
-                res3 = read(start);
+            else if (i == 2) {
+                res3 = read(i);
                 basic.pause(25);
             }
-            else if (start == 3) {
-                res4 = read(start);
+            else if (i == 3) {
+                res4 = read(i);
                 basic.pause(25);
             }
         }
