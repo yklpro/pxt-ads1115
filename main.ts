@@ -346,7 +346,7 @@ namespace ads1115 {
         config |= _CQUE_NONE;
         // Sending the required data to the specified register.
         _write_register(_REGISTER_CONFIG, config);
-        while (! _read_register(_REGISTER_CONFIG) & _OS_NOTBUSY)){
+        while (!( _read_register(_REGISTER_CONFIG)) & _OS_NOTBUSY)){
             //break;  /* if use basic.pause(25), it is halted; */
 	    basic.pause(1);
 		}
